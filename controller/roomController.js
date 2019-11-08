@@ -16,6 +16,8 @@ exports.add = async(req,res) =>{
     const data = req.body
     try{const result = await rooms.create({
       name : data.name,
+      available : 1,
+      type : 1
     })
     res.send(result)}
     catch(e){
