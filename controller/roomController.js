@@ -14,12 +14,15 @@ exports.show = async(req,res) =>{
 }
 exports.add = async(req,res) =>{
     const data = req.body
-    const result = await rooms.create({
+    try{const result = await rooms.create({
       name : data.name,
       available : true,
       type : data.type
     })
-    res.send(result)
+    res.send(result)}
+    catch(e){
+      res.send(e)
+    }
 }
 exports.update = async(req,res) =>{
   const roomId = req.params.roomId
