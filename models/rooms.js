@@ -3,7 +3,7 @@ module.exports = (sequelize, DataTypes) => {
   const rooms = sequelize.define('rooms', {
     name: DataTypes.STRING,
     available: DataTypes.BOOLEAN,
-    type: DataTypes.INTEGER
+    type: DataTypes.STRING
 
   }, {});
   rooms.associate = function(models) {
