@@ -2,7 +2,7 @@
 module.exports = (sequelize, DataTypes) => {
   const rooms = sequelize.define('rooms', {
     name: DataTypes.STRING,
-    available: DataTypes.BOOLEAN,
+    available: DataTypes.INTEGER,
     type: DataTypes.INTEGER
 
   }, {});
