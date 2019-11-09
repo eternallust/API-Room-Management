@@ -59,7 +59,7 @@ exports.detail = async(req,res) =>{
 }
 exports.roomCheckOut = async(req,res) =>{
   const roomId = req.params.roomId
-  const result = await rooms.update(
+  try{const result = await rooms.update(
     {
       available: 1
     },
@@ -68,7 +68,10 @@ exports.roomCheckOut = async(req,res) =>{
         id: roomId
       }
     })
-  res.send(result)
+  res.send(result)}
+  catch(e){
+      res.send(e)
+    }
 }
 exports.roomCheckIn = async(req,res) =>{
   const roomId = req.params.roomId
