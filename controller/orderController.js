@@ -4,7 +4,7 @@ const rooms = models.rooms
 const orders = models.orders
 
 exports.show = async(req,res) =>{
-    const result = await orders.findAll({
+    try{const result = await orders.findAll({
         include: [
         {
             model : rooms,
@@ -16,11 +16,14 @@ exports.show = async(req,res) =>{
         }
     ]
     })
-    res.send(result)
+    res.send(result)}
+     catch(e){
+      res.send(e)
+    }
 }
 exports.checkRoom = async(req,res) =>{
     const roomId = req.params.roomId
-    const result = await orders.findOne({
+    try{const result = await orders.findOne({
         include: [
         {
             model : rooms,
@@ -36,11 +39,14 @@ exports.checkRoom = async(req,res) =>{
         ],
         where:{room_id:roomId}
     })
-    res.send(result)
+    res.send(result)}
+     catch(e){
+      res.send(e)
+    }
 }
 exports.orderCheckOut = async(req,res) => {
     const idOrder = req.params.idOrder;
-    const result = orders.update(
+    try{const result = orders.update(
     {
         is_done: true,
         is_booked: false
@@ -51,10 +57,16 @@ exports.orderCheckOut = async(req,res) => {
         } 
     }
     )
-    res.send(result) 
+    res.send(result)}
+     catch(e){
+      res.send(e)
+    }
 }
 exports.orderCheckIn = async(req,res) => {
-    const result = orders.create(req.body)
-    res.send(result) 
+    try{const result = orders.create(req.body)
+    res.send(result)}
+     catch(e){
+      res.send(e)
+    }
 }
  
