@@ -61,7 +61,7 @@ exports.roomCheckOut = async(req,res) =>{
   const roomId = req.params.roomId
   const result = await rooms.update(
     {
-      available: true
+      available: 1
     },
     {
       where: {
@@ -74,7 +74,7 @@ exports.roomCheckIn = async(req,res) =>{
   const roomId = req.params.roomId
   const result = await rooms.update(
     {
-      available: false
+      available: 0
     },
     {
       where: {
