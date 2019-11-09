@@ -23,7 +23,7 @@ exports.show = async(req,res) =>{
 }
 exports.checkRoom = async(req,res) =>{
     const roomId = req.params.roomId
-    try{const result = await orders.findOne({
+    const result = await orders.findOne({
         include: [
         {
             model : rooms,
@@ -39,10 +39,8 @@ exports.checkRoom = async(req,res) =>{
         ],
         where:{room_id:roomId}
     })
-    res.send(result)}
-     catch(e){
-      res.send(e)
-    }
+    res.send(result)
+   
 }
 exports.orderCheckOut = async(req,res) => {
     const idOrder = req.params.idOrder;
