@@ -46,8 +46,8 @@ exports.orderCheckOut = async(req,res) => {
     const idOrder = req.params.idOrder;
     try{const result = orders.update(
     {
-        is_done: true,
-        is_booked: false
+        is_done: 1,
+        is_booked: 0
     },
     {
         where: {
