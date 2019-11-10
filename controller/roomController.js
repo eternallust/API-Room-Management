@@ -5,15 +5,13 @@ const orders = models.orders
 
 exports.show = async(req,res) =>{
     const type = req.params.type
-    try{const result = await rooms.findAll({
+    const result = await rooms.findAll({
       where: {
         type: type
       }
     })
-    res.send(result)}
-     catch(e){
-      res.send(e)
-    }
+    res.send(result)
+  
 }
 exports.add = async(req,res) =>{
     const data = req.body
