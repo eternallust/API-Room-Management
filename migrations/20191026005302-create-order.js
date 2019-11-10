@@ -32,6 +32,9 @@ module.exports = {
       duration: {
         type: Sequelize.INTEGER
       },
+      is_done: {
+        type: Sequelize.INTEGER
+      },
       order_end_time: {
         type: Sequelize.DATE
       },
