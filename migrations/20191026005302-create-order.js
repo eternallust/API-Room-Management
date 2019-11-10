@@ -27,7 +27,7 @@ module.exports = {
       onDelete: 'cascade'
       },
       is_booked: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.INTEGER
       },
       duration: {
         type: Sequelize.INTEGER
