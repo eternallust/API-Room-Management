@@ -4,13 +4,18 @@ const rooms = models.rooms
 const orders = models.orders
 
 exports.show = async(req,res) =>{
+    try{
     const type = req.params.type
     const result = await rooms.findAll({
       where: {
         type: type
       }
     })
-    await res.send(result)
+    await res.send(result)}
+       catch(e){
+      res.send(e)
+    }
+    
   
 }
 exports.add = async(req,res) =>{
