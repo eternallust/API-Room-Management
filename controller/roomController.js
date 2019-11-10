@@ -10,7 +10,7 @@ exports.show = async(req,res) =>{
         type: type
       }
     })
-    res.send(result)
+    await res.send(result)
   
 }
 exports.add = async(req,res) =>{
