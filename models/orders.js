@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
     is_booked: DataTypes.BOOLEAN,
     duration: DataTypes.INTEGER,
     order_end_time: DataTypes.DATE,
-    is_done : DataTypes.BOOLEAN
+    is_done : DataTypes.INTEGER
   }, {});
   orders.associate = function(models) {
     // associations can be defined here
